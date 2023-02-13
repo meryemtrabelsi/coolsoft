@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container-fluid">
+
+
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+                        <h4 class="m-t-0 header-title">List Produit</h4>
+                        <p class="text-muted font-14 m-b-20">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="{{ path('app_produit_new') }}">
+                                        <button type="button" class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5">Ajouter Produit</button>                            </p>
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nom</th>
+                                <th>Prix</th>
+                                <th>Description</th>
+                                <th>Qtestock</th>
+
+                                <th>Modifier</th>
+                                <th>Supprimer</th>
+                                <th>Detail</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for produit in produits %}
+                            <tr>
+
+                                <td>{{ produit.id }}</td>
+                                <td>{{ produit.nom }}</td>
+                                <td>{{ produit.prix }}</td>
+
+                                <td>{{ produit.description }}</td>
+                                <td>{{ produit.qtestock }}</td>
+
+                                <td><a href="{{ path('app_produit_edit', {'id': produit.id}) }}"> <i class="fa fa-pencil"></i>modifier</a></td>
+
+                                <td> <a href="{{ path('app_produit_delete', {'id': produit.id}) }}"
+                                        onclick="return confirm('Etes vous sûr de supprimer ');"><i class="fa fa-trash" style="color:#00aff0;font-size:20px"></i>delete</a></td>
+                                <td><a href="{{ path('app_produit_show', {'id': produit.id}) }}"><i class="fa fa-list" style="color:#0eac5c;font-size:20px"></i>detail </a> </td>
+
+                            </tr>
+                            <td>
+
+                </td>
+
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
