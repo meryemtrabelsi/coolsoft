@@ -1,4 +1,7 @@
-{{ form_start(form) }}
+{{form_start(form,{'attr':{'class':'form-group','novalidate':'novalidate'}})}}
     {{ form_widget(form) }}
+    {{ form_errors (form) }}
+
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
