@@ -1,0 +1,254 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+
+<!-- Top Panel -->
+                <div class="top_panel_title top_panel_style_3 title_present breadcrumbs_present scheme_original">
+                    <div class="top_panel_title_inner top_panel_inner_style_3  title_present_inner breadcrumbs_present_inner">
+                        <div class="content_wrap">
+                            <h1 class="page_title">Contacts</h1>
+                            <div class="breadcrumbs">
+                                <a class="breadcrumbs_item home" href="{{ path('app_home')}}">Home</a>
+                                <span class="breadcrumbs_delimiter"></span>
+                                <span class="breadcrumbs_item current">Contacts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Top Panel -->
+                <!-- Page Content Wrap -->
+                <div class="page_content_wrap page_paddings_no">
+                    <!-- Services section -->
+                    <div class="content_wrap">
+                        <!-- Content -->
+                        <div class="content">
+                            <div class="post_item post_item_single page">
+                                <div class="post_content">
+                                    <div class="sc_content content_wrap padding_top_17_imp padding_bottom_3_imp">
+                                        <div class="sc_services_wrap">
+                                            <div class="sc_services sc_services_style_services-1 sc_services_type_icons margin_top_huge margin_bottom_large">
+                                                <div class="sc_columns columns_wrap">
+                                                    <div class="column-1_3 column_padding_bottom">
+                                                        <div class="sc_services_item sc_services_item_1 odd first">
+                                                            <span class="sc_icon icon-email-2"></span>
+                                                            <div class="sc_services_item_content">
+                                                                <div class="sc_services_item_description">
+                                                                    <p><a href="#">tennismate@gmail.tn</a>
+                                                                        <br />
+                                                                        <a href="#">www.tennismate.tn</a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><div class="column-1_3 column_padding_bottom">
+                                                        <div class="sc_services_item sc_services_item_2 even">
+                                                            <span class="sc_icon icon-map-2"></span>
+                                                            <div class="sc_services_item_content">
+                                                                <div class="sc_services_item_description">
+                                                                    <p>
+                                                                        +216 99-302-516
+                                                                        <br /> +216 90-767-743
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><div class="column-1_3 column_padding_bottom">
+                                                        <div class="sc_services_item sc_services_item_3 odd">
+                                                            <span class="sc_icon icon-home-2"></span>
+                                                            <div class="sc_services_item_content">
+                                                                <div class="sc_services_item_description">
+                                                                    <p>cité olympique,<br />
+                                                                        Tunis,1003
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Content -->
+                    </div>
+                    <!-- /Services section -->
+                     <!-- Contact form  -->
+                    <div class="content contact_form_custom_1">
+                        <div class="sc_content content_wrap margin_top_null margin_bottom_null">
+                            <h3 class="sc_title sc_title_underline sc_align_center margin_top_null margin_bottom_null text_align_center color_white font_size_3_571em">Contact Us Today</h3>
+                            <div id="sc_form_1_wrap" class="sc_form_wrap">
+                                <div id="sc_form_1" class="sc_form sc_form_style_form_1 aligncenter width_66_per">
+                                    <form id="sc_form_1_form" data-formtype="form_1" method="post" action="include/sendmail.php">
+                                        <div class="sc_form_info">
+                                            <div class="sc_form_item sc_form_field label_over">
+                                                <label class="required" for="sc_form_username">Name</label>
+                                                <input id="sc_form_username" type="text" name="username" placeholder="Name *">
+                                            </div>
+                                            <div class="sc_form_item sc_form_field label_over">
+                                                <label class="required" for="sc_form_email">E-mail</label>
+                                                <input id="sc_form_email" type="text" name="email" placeholder="E-mail *">
+                                            </div>
+                                            <div class="sc_form_item sc_form_field label_over">
+                                                <label class="required" for="sc_form_subj">Subject</label>
+                                                <input id="sc_form_subj" type="text" name="subject" placeholder="Subject">
+                                            </div>
+                                        </div>
+                                        <div class="sc_form_item sc_form_message label_over">
+                                            <label class="required" for="sc_form_message">Message</label>
+                                            <textarea id="sc_form_message" name="message" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="sc_form_item sc_form_button">
+                                            <button>Send Message</button>
+                                        </div>
+                                        <div class="result sc_infobox"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Contact form  -->
+                    <!-- Google map -->
+                    <div class="content">
+                        <div class="sc_section">
+                            <div class="sc_section_inner">
+                                <div id="sc_googlemap_1" class="sc_googlemap width_100_per height_400" data-zoom="10" data-style="custom">
+                                    <div id="sc_googlemap_1_1" class="sc_googlemap_marker" data-title="U.S. Bank" data-description="&lt;p&gt;&lt;strong&gt;U.S. Bank&lt;/strong&gt;&lt;br /&gt; A reliable bank with ancient traditions and friendly staff&lt;/p&gt;" data-address="5611 West Madison Street, Chicago, IL 60644" data-latlng="" data-point="images/marker.png"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Google map -->
+                </div>
+                <!-- /Page Content Wrap -->
+                <!-- Footer -->
+                <footer class="footer_wrap widget_area scheme_original">
+                    <div class="footer_wrap_inner widget_area_inner">
+                        <div class="content_wrap">
+                            <div class="columns_wrap">
+                                <!-- Widget: Socials -->
+                                <aside class="column-1_4 widget widget_socials">
+                                    <div class="widget_inner">
+                                        <div class="logo">
+                                            <a href="index.html">
+                                                <img src="http://placehold.it/290x50" class="logo_main" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="logo_descr">Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incidt dolore magna aliqua.</div>
+                                        <div class="sc_socials sc_socials_type_icons sc_socials_shape_square sc_socials_size_small">
+                                            <div class="sc_socials_item">
+                                                <a href="#" target="_blank" class="social_icons social_twitter">
+                                                    <span class="icon-twitter"></span>
+                                                </a>
+                                            </div>
+                                            <div class="sc_socials_item">
+                                                <a href="#" target="_blank" class="social_icons social_facebook">
+                                                    <span class="icon-facebook"></span>
+                                                </a>
+                                            </div>
+                                            <div class="sc_socials_item">
+                                                <a href="#" target="_blank" class="social_icons social_gplus">
+                                                    <span class="icon-gplus"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aside><!-- /Widget: Socials --><!-- Widget: Recent Entries --><aside class="column-1_4 widget widget_recent_entries">
+                                <h5 class="widget_title">Latest News</h5>
+                                <ul>
+                                    <li>
+                                        <a href="post-single.html">Improve Your Strokes Using The Wall</a>
+                                    </li>
+                                    <li>
+                                        <a href="post-single.html">The Bad Guy Who Has Done Nothing Wrong</a>
+                                    </li>
+                                    <li>
+                                        <a href="post-single.html">From Dreads to Fed: Wimbledon A-Z</a>
+                                    </li>
+                                </ul>
+                            </aside><!-- /Widget: Recent Entries --><!-- Widget: Text --><aside class="column-1_4 widget widget_text">
+                                <h5 class="widget_title">Contact us</h5>
+                                <div class="textwidget">
+                                    <strong>Address</strong>
+                                    <p> 8500 Lorem Street, Chicago, IL, 55030</p>
+                                    <strong>Call Us</strong>
+                                    <p>(123) 456-78-90</p>
+                                    <strong>Email</strong>
+                                    <p>sales@yoursite.com</p>
+                                </div>
+                            </aside><!-- /Widget: Text --><!-- Widget: RecentPosts --><aside class="column-1_4 widget widget_recent_posts">
+                                <h5 class="widget_title">Latest Posts</h5>
+                                <article class="post_item with_thumb first">
+                                    <div class="post_thumb">
+                                        <img alt="Improve Your Strokes Using The Wall" src="http://placehold.it/75x75">
+                                    </div>
+                                    <div class="post_content">
+                                        <h6 class="post_title">
+                                            <a href="post-single.html">Improve Your Strokes Using The Wall</a>
+                                        </h6>
+                                        <div class="post_info">
+                                                <span class="post_info_item post_info_posted">
+                                                    <a href="#" class="post_info_date">February 6, 2016</a>
+                                                </span>
+                                                <span class="post_info_item post_info_posted_by">by
+                                                    <a href="#" class="post_info_author">John Doe</a>
+                                                </span>
+                                                <span class="post_info_item post_info_counters">
+                                                    <a href="#" class="post_counters_item post_counters_views icon-eye">
+                                                        <span class="post_counters_number">4</span>
+                                                    </a>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="post_item with_thumb">
+                                    <div class="post_thumb">
+                                        <img alt="The Bad Guy Who Has Done Nothing Wrong" src="http://placehold.it/75x75">
+                                    </div>
+                                    <div class="post_content">
+                                        <h6 class="post_title">
+                                            <a href="post-single.html">The Bad Guy Who Has Done Nothing Wrong</a>
+                                        </h6>
+                                        <div class="post_info">
+                                                <span class="post_info_item post_info_posted">
+                                                    <a href="#" class="post_info_date">December 4, 2015</a>
+                                                </span>
+                                                <span class="post_info_item post_info_posted_by">by
+                                                    <a href="#" class="post_info_author">John Doe</a>
+                                                </span>
+                                                <span class="post_info_item post_info_counters">
+                                                    <a href="#" class="post_counters_item post_counters_views icon-eye">
+                                                        <span class="post_counters_number">4</span>
+                                                    </a>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </aside>
+                                <!-- /Widget: RecentPosts -->
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- /Footer -->
+                <!-- Copyright -->
+                <div class="copyright_wrap copyright_style_menu">
+                    <div class="copyright_wrap_inner">
+                        <div class="content_wrap">
+                            <div class="copyright_text">ThemeREX © 2016 All Rights Reserved
+                                <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Copyright -->
+            </div>
+        </div>
+        <!-- /Body Wrap -->
+
+
+
+{% endblock %}
