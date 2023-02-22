@@ -9,9 +9,15 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Date_debut</th>
-                <th>Date_fin</th>
-                <th>Niveau</th>
+                <th>Date</th>
+                <th>Duration</th>
+                <th>Level</th>
+                <th>Adresse</th>
+                <th>Coach_name</th>
+                <th>People_nbre</th>
+                <th>Is_available</th>
+                <th>Description</th>
+                <th>Price</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,9 +25,15 @@
         {% for seance in seances %}
             <tr>
                 <td>{{ seance.id }}</td>
-                <td>{{ seance.dateDebut }}</td>
-                <td>{{ seance.dateFin }}</td>
-                <td>{{ seance.niveau }}</td>
+                <td>{{ seance.date ? seance.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ seance.duration }}</td>
+                <td>{{ seance.level }}</td>
+                <td>{{ seance.adresse }}</td>
+                <td>{{ seance.coachName }}</td>
+                <td>{{ seance.peopleNbre }}</td>
+                <td>{{ seance.isAvailable ? 'Yes' : 'No' }}</td>
+                <td>{{ seance.description }}</td>
+                <td>{{ seance.price }}</td>
                 <td>
                     <a href="{{ path('app_seance_show', {'id': seance.id}) }}">show</a>
                     <a href="{{ path('app_seance_edit', {'id': seance.id}) }}">edit</a>
@@ -29,7 +41,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="11">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -3,7 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\SeanceRepository;
+use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SeanceRepository::class)]
 class Seance
@@ -13,83 +18,201 @@ class Seance
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $date_debut = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+
+    private ?\DateTimeInterface $date = null;
+
+    #[ORM\Column]
+
+    private ?float $duration = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $level = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $date_fin = null;
+    /**
+     * @Assert\NotBlank(message=" the address must be non-empty")
+     */
+    private ?string $adresse = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $niveau = null;
+    #[ORM\Column(length: 100)]
+    private ?string $coach_name = null;
 
-    #[ORM\ManyToOne(inversedBy: 'seances')]
-    private ?Utilisateur $utilisateur = null;
+    #[ORM\Column]
+    /**
+     * @Assert\NotBlank(message=" the number of people must be non-empty")
 
-    #[ORM\ManyToOne(inversedBy: 'seances')]
-    private ?Terrain $terrain = null;
+     * @Assert\Range(
+     *     min=1,
+     *     max=20,
+     *     notInRangeMessage="The input value must be between {{ min }} and {{ max }}.",
+     *     invalidMessage="The input value must be a valid integer."
+     * )
+     */
+    private ?int $people_nbre = null;
+
+    #[ORM\Column]
+    private ?bool $is_available = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column]
+    /**
+     * @Assert\NotBlank(message=" the price must be non-empty")
+     */
+    private ?float $price = null;
+
+    #[ORM\OneToMany(mappedBy: 'seance', targetEntity: Reservation::class)]
+    private Collection $reservations;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDateDebut(): ?string
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->date_debut;
+        return $this->date;
     }
 
-    public function setDateDebut(string $date_debut): self
+    public function setDate(\DateTimeInterface $date): self
     {
-        $this->date_debut = $date_debut;
+        $this->date ;
 
         return $this;
     }
 
-    public function getDateFin(): ?string
+    public function getDuration(): ?float
     {
-        return $this->date_fin;
+        return $this->duration;
     }
 
-    public function setDateFin(string $date_fin): self
+    public function setDuration(float $duration): self
     {
-        $this->date_fin = $date_fin;
+        $this->duration = $duration;
 
         return $this;
     }
 
-    public function getNiveau(): ?string
+    public function getLevel(): ?string
     {
-        return $this->niveau;
+        return $this->level;
     }
 
-    public function setNiveau(string $niveau): self
+    public function setLevel(string $level): self
     {
-        $this->niveau = $niveau;
+        $this->level = $level;
 
         return $this;
     }
 
-    public function getUtilisateur(): ?Utilisateur
+    public function getAdresse(): ?string
     {
-        return $this->utilisateur;
+        return $this->adresse;
     }
 
-    public function setUtilisateur(?Utilisateur $utilisateur): self
+    public function setAdresse(string $adresse): self
     {
-        $this->utilisateur = $utilisateur;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
-    public function getTerrain(): ?Terrain
+    public function getCoachName(): ?string
     {
-        return $this->terrain;
+        return $this->coach_name;
     }
 
-    public function setTerrain(?Terrain $terrain): self
+    public function setCoachName(string $coach_name): self
     {
-        $this->terrain = $terrain;
+        $this->coach_name = $coach_name;
 
         return $this;
     }
+
+    public function getPeopleNbre(): ?int
+    {
+        return $this->people_nbre;
+    }
+
+    public function setPeopleNbre(int $people_nbre): self
+    {
+        $this->people_nbre = $people_nbre;
+
+        return $this;
+    }
+
+    public function isIsAvailable(): ?bool
+    {
+        return $this->is_available;
+    }
+
+    public function setIsAvailable(bool $is_available): self
+    {
+        $this->is_available = $is_available;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reservation>
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations->add($reservation);
+            $reservation->setSeance($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getSeance() === $this) {
+                $reservation->setSeance(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

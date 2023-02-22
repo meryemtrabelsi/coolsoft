@@ -12,16 +12,40 @@
                 <td>{{ seance.id }}</td>
             </tr>
             <tr>
-                <th>Date_debut</th>
-                <td>{{ seance.dateDebut }}</td>
+                <th>Date</th>
+                <td>{{ seance.date ? seance.date|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Date_fin</th>
-                <td>{{ seance.dateFin }}</td>
+                <th>Duration</th>
+                <td>{{ seance.duration }}</td>
             </tr>
             <tr>
-                <th>Niveau</th>
-                <td>{{ seance.niveau }}</td>
+                <th>Level</th>
+                <td>{{ seance.level }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ seance.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Coach_name</th>
+                <td>{{ seance.coachName }}</td>
+            </tr>
+            <tr>
+                <th>People_nbre</th>
+                <td>{{ seance.peopleNbre }}</td>
+            </tr>
+            <tr>
+                <th>Is_available</th>
+                <td>{{ seance.isAvailable ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ seance.description }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ seance.price }}</td>
             </tr>
         </tbody>
     </table>
