@@ -16,7 +16,7 @@ class LignedecommandeController extends AbstractController
     #[Route('/', name: 'app_lignedecommande_index', methods: ['GET'])]
     public function index(LignedecommandeRepository $lignedecommandeRepository): Response
     {
-        return $this->render('lignedecommande/index.html.twig', [
+        return $this->render('lignedecommande/cart.html.twig', [
             'lignedecommandes' => $lignedecommandeRepository->findAll(),
         ]);
     }
@@ -57,7 +57,7 @@ class LignedecommandeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $lignedecommandeRepository->save($lignedecommande, true);
 
-            return $this->redirectToRoute('app_lignedecommande_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_commande_show', ['id'=>$lignedecommande->getCommande()->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('lignedecommande/edit.html.twig', [

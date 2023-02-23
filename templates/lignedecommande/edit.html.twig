@@ -1,13 +1,27 @@
-{% extends 'base.html.twig' %}
+{% extends 'base1.html.twig' %}
 
-{% block title %}Edit Lignedecommande{% endblock %}
+{% block title %}Modifier Lignedecommande{% endblock %}
 
 {% block body %}
-    <h1>Edit Lignedecommande</h1>
+    <h1>Modifier Lignedecommande</h1>
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    <table>
+        <tr>
+            <td> {{ form_label(form.produit,"Produit") }}</td>
+            <td>{{ form_widget(form.produit) }}</td>
+            <td>{{ form_errors(form.produit) }}</td>
+        </tr>
+        <tr>
+            <td> {{ form_label(form.quantite,"Quantite") }}</td>
+            <td>{{ form_widget(form.quantite) }}</td>
+            <td>{{ form_errors(form.quantite) }}</td>
+        </tr>
+
+    </table>
 
     {{ include('lignedecommande/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_lignedecommande_index') }}">back to list</a>
+    {{ form_end(form) }}
+    <a href="{{ path('app_commande_index') }}">retour</a>
 
     {{ include('lignedecommande/_delete_form.html.twig') }}
 {% endblock %}

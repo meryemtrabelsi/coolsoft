@@ -13,7 +13,6 @@ class LignedecommandeType extends AbstractType
     {
         $builder
             ->add('quantite')
-            ->add('commande')
             ->add('produit')
         ;
     }

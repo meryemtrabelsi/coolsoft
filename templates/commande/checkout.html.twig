@@ -1,0 +1,368 @@
+
+
+{% extends 'base.html.twig' %}
+
+
+
+
+
+{% block css %}
+    <!-- css -->
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Montserrat:400,700')}}"  type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/fontello/css/fontello.min.css')}}" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="{{ asset('css/woocommerce/woocommerce-layout.css')}}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('css/woocommerce/woocommerce-smallscreen.css')}}" type="text/css" media="only screen and (max-width: 768px)" />
+    <link rel="stylesheet" href="{{ asset('css/woocommerce/woocommerce.css" type="text/css')}}" media="all" />
+
+    <link rel="stylesheet" href="{{ asset('css/style.min.css')}}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('css/core.animation.min.css')}}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('css/shortcodes.min.css')}}" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="{{ asset('css/plugin.woocommerce.min.css')}}" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="{{ asset('css/skin.min.css')}}" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="{{ asset('css/responsive.min.css')}}" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="{{ asset('js/core.messages/core.messages.min.css')}}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('js/magnific/magnific-popup.min.css')}}" type="text/css" media="all" />
+
+
+{% endblock %}
+
+{% block content %}
+
+                <div class="header_mobile">
+                    <div class="content_wrap">
+                        <div class="menu_button icon-menu"></div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="http://placehold.it/290x50" class="logo_main" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="side_wrap">
+                        <div class="close">Close</div>
+                        <div class="panel_top">
+                            <nav class="menu_main_nav_area">
+                                <ul id="menu_main_mobile" class="menu_main_nav">
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="#">Home</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item">
+                                                <a href="index.html">Home 1</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="homepage-2.html">Home 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="#">Pages</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item">
+                                                <a href="typography.html">Typography</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="shortcodes.html">Shortcodes</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="page-404.html">404</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="about-us.html">About Us</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="our-team.html">Our Team</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="player-profile.html">Player&#8217;s Profile</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="reservation.html">Reservation</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="events-calendar.html">Tournaments</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="membership.html">Membership</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="tennis-lessons.html">Lessons</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="#">News</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item">
+                                                <a href="blog-classic.html">Classic</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="blog-colored-excerpt.html">Colored Excerpt</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="blog-masonry.html">Masonry</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="blog-portfolio.html">Portfolio</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="post-formats.html">Post Formats</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item current-menu-ancestor current-menu-parent">
+                                        <a href="shop.html">Pro Shop</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="contacts.html">Contacts</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="search_wrap search_style_regular search_state_fixed">
+                                <div class="search_form_wrap">
+                                    <form method="get" class="search_form" action="#">
+                                        <button type="submit" class="search_submit icon-magnifier" title="Start search"></button>
+                                        <input type="text" class="search_field" placeholder="Search" value="" name="s" />
+                                    </form>
+                                </div>
+                                <div class="search_results widget_area scheme_original">
+                                    <a class="search_results_close icon-cancel"></a>
+                                    <div class="search_results_content"></div>
+                                </div>
+                            </div>
+                            <div class="login">
+                                <a href="#popup_login" class="popup_link popup_login_link">Login</a>
+                            </div>
+                        </div>
+                        <div class="panel_bottom">
+                            <div class="contact_socials">
+                                <div class="sc_socials sc_socials_type_icons sc_socials_shape_square sc_socials_size_small">
+                                    <div class="sc_socials_item">
+                                        <a href="#" target="_blank" class="social_icons social_twitter">
+                                            <span class="icon-twitter"></span>
+                                        </a>
+                                    </div>
+                                    <div class="sc_socials_item">
+                                        <a href="#" target="_blank" class="social_icons social_facebook">
+                                            <span class="icon-facebook"></span>
+                                        </a>
+                                    </div>
+                                    <div class="sc_socials_item">
+                                        <a href="#" target="_blank" class="social_icons social_gplus">
+                                            <span class="icon-gplus"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top_panel_link">
+                            <a href="court-reservation.html">Reserve a court</a>
+                        </div>
+                    </div>
+                    <div class="mask"></div>
+                </div>
+                <!-- /Header Mobile -->
+                <!-- Top Panel -->
+                <div class="top_panel_title top_panel_style_3 breadcrumbs_present scheme_original">
+                    <div class="top_panel_title_inner top_panel_inner_style_3 breadcrumbs_present_inner">
+                        <div class="content_wrap">
+                            <div class="breadcrumbs">
+                                <a class="breadcrumbs_item home" href="index.html">Home</a>
+                                <span class="breadcrumbs_delimiter"></span>
+                                <a class="breadcrumbs_item all" href="shop.html">Shop</a>
+                                <span class="breadcrumbs_delimiter"></span>
+                                <span class="breadcrumbs_item current">Checkout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Top Panel -->
+                <!-- Page Content Wrap -->
+
+                                               
+                                                    <div id="payment" class="woocommerce-checkout-payment">
+                                                        <ul class="wc_payment_methods payment_methods methods">
+                                                            <li class="wc_payment_method payment_method_paypal">
+                                                                <input id="payment_method_paypal" type="radio" class="input-radio" name="payment_method" value="paypal" checked="checked" data-order_button_text="Proceed to PayPal" />
+                                                                <label for="payment_method_paypal">
+                                                                    PayPal <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png" alt="PayPal Acceptance Mark" />
+                                                                    <a href="#" class="about_paypal margin_left_1em" title="What is PayPal?">What is PayPal?</a>
+                                                                </label>
+                                                                <div class="payment_box payment_method_paypal">
+                                                                    <p>Pay via PayPal; you can pay with your credit card if you don&#8217;t have a PayPal account.</p>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="form-row place-order">
+                                                            <input type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /Review Order -->
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <!-- /Content -->
+                    </div>
+                </div>
+                <!-- /Page Content Wrap -->
+                <!-- Footer -->
+                <footer class="footer_wrap widget_area scheme_original">
+                    <div class="footer_wrap_inner widget_area_inner">
+                        <div class="content_wrap">
+                            <div class="columns_wrap">
+                                <!-- Widget: Socials -->
+                                <aside class="column-1_4 widget widget_socials">
+                                    <div class="widget_inner">
+                                        <div class="logo">
+                                            <a href="index.html">
+                                                <img src="http://placehold.it/290x50" class="logo_main" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="logo_descr">Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incidt dolore magna aliqua.</div>
+                                        <div class="sc_socials sc_socials_type_icons sc_socials_shape_square sc_socials_size_small">
+                                            <div class="sc_socials_item">
+                                                <a href="#" target="_blank" class="social_icons social_twitter">
+                                                    <span class="icon-twitter"></span>
+                                                </a>
+                                            </div>
+                                            <div class="sc_socials_item">
+                                                <a href="#" target="_blank" class="social_icons social_facebook">
+                                                    <span class="icon-facebook"></span>
+                                                </a>
+                                            </div>
+                                            <div class="sc_socials_item">
+                                                <a href="#" target="_blank" class="social_icons social_gplus">
+                                                    <span class="icon-gplus"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aside><!-- /Widget: Socials --><!-- Widget: Recent Entries --><aside class="column-1_4 widget widget_recent_entries">
+                                <h5 class="widget_title">Latest News</h5>
+                                <ul>
+                                    <li>
+                                        <a href="post-single.html">Improve Your Strokes Using The Wall</a>
+                                    </li>
+                                    <li>
+                                        <a href="post-single.html">The Bad Guy Who Has Done Nothing Wrong</a>
+                                    </li>
+                                    <li>
+                                        <a href="post-single.html">From Dreads to Fed: Wimbledon A-Z</a>
+                                    </li>
+                                </ul>
+                            </aside><!-- /Widget: Recent Entries --><!-- Widget: Text --><aside class="column-1_4 widget widget_text">
+                                <h5 class="widget_title">Contact us</h5>
+                                <div class="textwidget">
+                                    <strong>Address</strong>
+                                    <p> 8500 Lorem Street, Chicago, IL, 55030</p>
+                                    <strong>Call Us</strong>
+                                    <p>(123) 456-78-90</p>
+                                    <strong>Email</strong>
+                                    <p>sales@yoursite.com</p>
+                                </div>
+                            </aside><!-- /Widget: Text --><!-- Widget: RecentPosts --><aside class="column-1_4 widget widget_recent_posts">
+                                <h5 class="widget_title">Latest Posts</h5>
+                                <article class="post_item with_thumb first">
+                                    <div class="post_thumb">
+                                        <img alt="Improve Your Strokes Using The Wall" src="http://placehold.it/75x75">
+                                    </div>
+                                    <div class="post_content">
+                                        <h6 class="post_title">
+                                            <a href="post-single.html">Improve Your Strokes Using The Wall</a>
+                                        </h6>
+                                        <div class="post_info">
+                                                <span class="post_info_item post_info_posted">
+                                                    <a href="#" class="post_info_date">February 6, 2016</a>
+                                                </span>
+                                                <span class="post_info_item post_info_posted_by">by
+                                                    <a href="#" class="post_info_author">John Doe</a>
+                                                </span>
+                                                <span class="post_info_item post_info_counters">
+                                                    <a href="#" class="post_counters_item post_counters_views icon-eye">
+                                                        <span class="post_counters_number">4</span>
+                                                    </a>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="post_item with_thumb">
+                                    <div class="post_thumb">
+                                        <img alt="The Bad Guy Who Has Done Nothing Wrong" src="http://placehold.it/75x75">
+                                    </div>
+                                    <div class="post_content">
+                                        <h6 class="post_title">
+                                            <a href="post-single.html">The Bad Guy Who Has Done Nothing Wrong</a>
+                                        </h6>
+                                        <div class="post_info">
+                                                <span class="post_info_item post_info_posted">
+                                                    <a href="#" class="post_info_date">December 4, 2015</a>
+                                                </span>
+                                                <span class="post_info_item post_info_posted_by">by
+                                                    <a href="#" class="post_info_author">John Doe</a>
+                                                </span>
+                                                <span class="post_info_item post_info_counters">
+                                                    <a href="#" class="post_counters_item post_counters_views icon-eye">
+                                                        <span class="post_counters_number">4</span>
+                                                    </a>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </aside>
+                                <!-- /Widget: RecentPosts -->
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- /Footer -->
+                <!-- Copyright -->
+                <div class="copyright_wrap copyright_style_menu">
+                    <div class="copyright_wrap_inner">
+                        <div class="content_wrap">
+                            <div class="copyright_text">ThemeREX © 2016 All Rights Reserved
+                                <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Copyright -->
+            </div>
+        </div>
+        <!-- /Body Wrap -->
+
+        <a href="#" class="scroll_to_top icon-up" title="Scroll to top"></a>
+{% endblock %}
+        {% block js%}
+
+
+
+        <script type="text/javascript" src="{{ asset('js/jquery/jquery.js')}}"></script>
+
+        <script type="text/javascript" src="{{ asset('js/_packed.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/global.min.js')}}"></script>
+
+        <script type="text/javascript" src="{{ asset('js/vendor/woocommerce/woocommerce.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/vendor/woocommerce/cart-fragments.min.js')}}"></script>
+
+        <script type="text/javascript" src="{{ asset('js/core.utils.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/core.init.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/theme.init.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/shortcodes.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/core.messages/core.messages.min.js')}}"></script>
+
+        <script type="text/javascript" src="{{ asset('js/vendor/woocommerce/jquery-ui-touch-punch/jquery-ui-touch-punch.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('js/vendor/woocommerce/price-slider.min.js')}}">
+        </script>
+
+
+
+
+       {% endblock %}

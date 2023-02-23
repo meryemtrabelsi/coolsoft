@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\LignedecommandeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LignedecommandeRepository::class)]
 class Lignedecommande
@@ -14,6 +15,7 @@ class Lignedecommande
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Positive(message:"la quantite >0")]
     private ?string $quantite = null;
 
     #[ORM\ManyToOne(inversedBy: 'lignedecommandes')]
@@ -21,6 +23,14 @@ class Lignedecommande
 
     #[ORM\ManyToOne(inversedBy: 'lignedecommandes')]
     private ?Produit $produit = null;
+
+    #[ORM\Column(nullable: true)]
+    #[Assert\Positive(message:"la TOTALE >0")]
+    private ?int $totale = null;
+
+
+
+
 
     public function getId(): ?int
     {
@@ -62,4 +72,24 @@ class Lignedecommande
 
         return $this;
     }
+
+    public function getTotale(): ?int
+    {
+        return $this->totale;
+    }
+
+    public function setTotale(?int $totale): self
+    {
+        $this->totale = $totale;
+
+        return $this;
+    }
+    public function calculertotale(?int $totale): self
+    {
+        $this->totale = $totale;
+
+        return $this;
+    }
+
+
 }

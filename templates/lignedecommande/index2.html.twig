@@ -1,0 +1,49 @@
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="product-remove">&nbsp;</th>
+            <th class="product-thumbnail">&nbsp;</th>
+            <th class="product-name">Product</th>
+            <th class="product-price">Price</th>
+            <th class="product-quantity">Quantity</th>
+            <th class="product-subtotal">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for lignedecommande in lignedecommandes %}
+            <tr>
+                <td>
+                    <a href="{{ path('app_lignedecommande_delete', {'id': lignedecommande.id}) }}">&times;</a>
+                </td>
+                <td class="product-thumbnail">
+                    <a href="shop-product-page.html">
+                        <img src="http://placehold.it/75x75" alt="product-8" />
+                    </a>
+                </td>
+                <td class="product-name" data-title="Product">
+                    <a href="shop-product-page.html">{{ lignedecommande.produit.nom }}</a>
+                </td>
+                <td>{{ lignedecommande.produit.prix }}</td>
+                <td>{{ lignedecommande.quantite }}</td>
+
+
+                <td class="product-subtotal" data-title="Total">
+                    <span class="amount">{{ lignedecommande.totale }}</span>
+                </td>
+            </tr>
+        {% endfor %}
+        <!-- Cart item -->
+        <!-- /Cart item -->
+        <tr>
+            <td colspan="6" class="actions">
+                <div class="coupon">
+                    <label for="coupon_code">Coupon:</label>
+                    <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" />
+                    <input type="submit" class="button" name="apply_coupon" value="Apply Coupon" />
+                </div>
+                <input type="submit" class="button" name="update_cart" value="Update Cart" />
+            </td>
+        </tr>
+        </tbody>
+    </table>

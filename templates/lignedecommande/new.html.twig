@@ -4,6 +4,7 @@
 
 {% block body %}
     <h1>Create new Lignedecommande</h1>
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
 
     {{ include('lignedecommande/_form.html.twig') }}
 

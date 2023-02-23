@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@massimo-cassandro/symfony-bootstrap-form-theme": "^3.0.2"
+  }
+}

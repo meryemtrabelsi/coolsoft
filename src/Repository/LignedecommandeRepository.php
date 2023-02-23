@@ -41,7 +41,7 @@ class LignedecommandeRepository extends ServiceEntityRepository
 
 //    /**
 //     * @return Lignedecommande[] Returns an array of Lignedecommande objects
-//     */
+//
 //    public function findByExampleField($value): array
 //    {
 //        return $this->createQueryBuilder('l')

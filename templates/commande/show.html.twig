@@ -3,28 +3,45 @@
 {% block title %}Commande{% endblock %}
 
 {% block body %}
-    <h1>Commande</h1>
+    <h1>Commande {{ commande.id }}</h1>
 
+<div id="order_review" class="woocommerce-checkout-review-order">
     <table class="table">
+        <thead>
+        <tr>
+            <th >Product</th>
+            <th >quantity</th>
+            <th >Total</th>
+        </tr>
+        </thead>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ commande.id }}</td>
-            </tr>
-            <tr>
-                <th>Statue</th>
-                <td>{{ commande.statue }}</td>
-            </tr>
-            <tr>
-                <th>Codepromo</th>
-                <td>{{ commande.codepromo }}</td>
-            </tr>
-        </tbody>
+        {% for lignedecommande in commande.lignedecommandes %}
+        <tr >
+            <td >{{ lignedecommande.produit.nom }}</td>
+            <td >{{ lignedecommande.quantite}}</td>
+            <td >{{ lignedecommande.totale }}</td>
+            <td> <a href="{{ path('app_lignedecommande_edit', {'id': lignedecommande.id}) }}">edit</a> </td>
+        </tr>
+
+
+        {% endfor %}
+        <tr >
+            <th>statue</th>
+            <td data-title="Statue">
+                <p>{{ commande.statue }}</p>
+            </td>
+        </tr>
+        <tr class="order-total">
+            <th>Total</th>
+            <td><strong><span class="amount">&pound;235.00</span></strong> </td>
+        </tr>
+        </tfoot>
     </table>
 
-    <a href="{{ path('app_commande_index') }}">back to list</a>
+    <a href="{{ path('app_commande_index') }}">retour
+    </a>
 
-    <a href="{{ path('app_commande_edit', {'id': commande.id}) }}">edit</a>
+    <a href="{{ path('app_commande_edit', {'id': commande.id}) }}">Modifier</a>
 
     {{ include('commande/_delete_form.html.twig') }}
 {% endblock %}

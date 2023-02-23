@@ -17,17 +17,20 @@ class Commande
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:"farouk")]
+    #[Assert\NotBlank(message:"la statue ne peut pas etres vide")]
     private ?string $statue = null;
 
     #[ORM\Column(length: 255)]
+
     private ?string $codepromo = null;
 
     #[ORM\OneToMany(mappedBy: 'commande', targetEntity: Lignedecommande::class)]
+
     private Collection $lignedecommandes;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
     private ?Utilisateur $utilisateur = null;
+
 
     public function __construct()
     {
@@ -103,5 +106,9 @@ class Commande
         $this->utilisateur = $utilisateur;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return (string) $this->id;
     }
 }
