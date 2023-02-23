@@ -18,12 +18,14 @@ class Seance
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'float')]
 
+    /**
+     * @Assert\NotBlank(message=" the duration must be non-empty")
+     */
     private ?float $duration = null;
 
     #[ORM\Column(length: 100)]
@@ -50,9 +52,9 @@ class Seance
      * )
      */
     private ?int $people_nbre = null;
+    #[ORM\Column(type: 'boolean', options: ['default' => true])]
+    private ?bool $is_available = true;
 
-    #[ORM\Column]
-    private ?bool $is_available = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
@@ -69,6 +71,7 @@ class Seance
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->date = new \DateTime() ;
 
     }
 
@@ -213,6 +216,10 @@ class Seance
         }
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->adresse;
     }
 
 }

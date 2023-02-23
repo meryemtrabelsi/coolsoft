@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
 use App\Repository\ReservationRepository;
+use App\Repository\SeanceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,22 +23,22 @@ class ReservationController extends AbstractController
     }
 
     #[Route('/new', name: 'app_reservation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ReservationRepository $reservationRepository): Response
+    public function new(Request $request, ReservationRepository $reservationRepository,SeanceRepository $seanceRepository): Response
     {
         $reservation = new Reservation();
-        $form = $this->createForm(ReservationType::class, $reservation);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $id = $request->request->get('id');
+        $currentDate = new \DateTimeImmutable();
+        $reservation->setSeance($seanceRepository->find($id));
+        $reservation->setCreateAt( $currentDate);
+        $reservation->setIsStatus(true);
+        $reservation->setUtilisateur(null);
             $reservationRepository->save($reservation, true);
 
-            return $this->redirectToRoute('app_reservation_index', [], Response::HTTP_SEE_OTHER);
-        }
 
-        return $this->renderForm('reservation/new.html.twig', [
-            'reservation' => $reservation,
-            'form' => $form,
-        ]);
+
+
+        return $this->redirectToRoute('app_lessons', [], Response::HTTP_SEE_OTHER);
     }
 
     #[Route('/{id}', name: 'app_reservation_show', methods: ['GET'])]

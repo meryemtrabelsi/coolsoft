@@ -4,11 +4,13 @@ namespace App\Form;
 
 use App\Entity\Seance;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\GreaterThan;
 
 class SeanceType extends AbstractType
 {
@@ -16,7 +18,25 @@ class SeanceType extends AbstractType
     {
         $builder
 
-            ->add('date')
+            ->add('date', DateTimeType::class, [
+                'label' => 'Date',
+                'required' => true,
+                'input' => 'datetime',
+                'widget' => 'single_text',
+                'constraints' => [
+                    new GreaterThan([
+                        'value' => 'now',
+                        'message' => 'The date must be greater than the current date and time.',
+                    ]),
+                ],
+            ])
+           /* ->add('date', DateTimeType::class, [
+                'label' => 'date At :',
+                'required' => false,
+                'input' => 'datetime_immutable',
+                'widget' => 'single_text',
+            ])*/
+
             ->add('duration')
             ->add('level', ChoiceType::class, [
                 'choices' => [

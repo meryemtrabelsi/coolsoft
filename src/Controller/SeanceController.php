@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Reservation;
 use App\Entity\Seance;
 use App\Form\SeanceType;
+use App\Repository\ReservationRepository;
 use App\Repository\SeanceRepository;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,6 +33,7 @@ class SeanceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $seanceRepository->save($seance, true);
 
             return $this->redirectToRoute('app_seance_index', [], Response::HTTP_SEE_OTHER);
@@ -67,12 +72,43 @@ class SeanceController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_seance_delete', methods: ['POST'])]
-    public function delete(Request $request, Seance $seance, SeanceRepository $seanceRepository): Response
+    public function delete(Request $request, Seance $seance, SeanceRepository $seanceRepository,ReservationRepository $reservationRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$seance->getId(), $request->request->get('_token'))) {
+            // Get the Seance entity you want to delete
+
+
+// Get the related Reservation entities
+            $reservations = $seance->getReservations();
+
+// Delete the Reservation entities
+            foreach ($reservations as $reservation) {
+                $reservationRepository->remove($reservation);
+            }
+
+// Delete the Seance entity
+
+
             $seanceRepository->remove($seance, true);
         }
 
         return $this->redirectToRoute('app_seance_index', [], Response::HTTP_SEE_OTHER);
     }
+
+ /*   #[Route('/{id}', name: 'app_seance_reserver', methods: ['POST'])]
+
+    public function reserver(Seance $seance,ReservationRepository $reservationRepository): Response
+    {
+        $reservation=new Reservation();
+        $reservation->setSeance($seance);
+        $reservation->setCreateAt();
+        $reservation->setIsStatus(1);
+        $reservation->setUtilisateur(null);
+
+        $reservationRepository->save($reservation);
+        return $this->redirectToRoute('app_seance_index', [], Response::HTTP_SEE_OTHER);
+
+
+}
+*/
 }

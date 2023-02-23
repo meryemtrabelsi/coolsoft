@@ -13,7 +13,7 @@ class Reservation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
+    #[ORM\Column (type: 'boolean', options: ['default' => true])]
     private ?bool $is_status = null;
 
     #[ORM\Column]
@@ -25,6 +25,10 @@ class Reservation
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     private ?Utilisateur $utilisateur = null;
 
+    public function __construct()
+    {
+        $this->create_at = new \DateTimeImmutable();
+    }
     public function getId(): ?int
     {
         return $this->id;
