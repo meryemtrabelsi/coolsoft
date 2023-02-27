@@ -18,7 +18,7 @@ class Seance
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(type: 'float')]
@@ -71,7 +71,7 @@ class Seance
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
-        $this->date = new \DateTime() ;
+
 
     }
 
@@ -87,10 +87,12 @@ class Seance
 
     public function setDate(\DateTimeInterface $date): self
     {
-        $this->date ;
+        $this->date = $date;
 
         return $this;
     }
+
+
 
     public function getDuration(): ?float
     {

@@ -32,6 +32,7 @@ class SeanceController extends AbstractController
         $form = $this->createForm(SeanceType::class, $seance);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             $seanceRepository->save($seance, true);
